@@ -3,12 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, precision_recall_curve, roc_curve, auc
 import numpy as np
-
-
-import sys
-
-sys.path.append("..")
-from utils.MuppetDataset import MuppetDataset
+import seaborn as sns
 
 
 def plot_confusion_matrix(y_true, y_pred, title, ax):
@@ -32,6 +27,20 @@ def plot_confusion_matrix(y_true, y_pred, title, ax):
     tick_marks = np.arange(2)
     ax.set_xticks(tick_marks)
     ax.set_yticks(tick_marks)
+
+
+def plot_global_confusion_matrix(y_true, y_pred, character1, character2):
+    # Assuming y_true and y_pred are your true and predicted labels
+    conf_matrix = confusion_matrix(y_true, y_pred)
+    # Plotting the confusion matrix
+    sns.heatmap(conf_matrix, annot=True, fmt="g", cmap="Blues")
+    plt.title("General confusion matrix (all classes)")
+    plt.ylabel("True Label")
+    plt.xlabel("Predicted Label")
+    plt.xticks(
+        ticks=[0.5, 1.5, 2.5], labels=["No character", character1, character2]
+    )  # Adjust ticks for class labels
+    plt.yticks(ticks=[0.5, 1.5, 2.5], labels=["No character", character1, character2])
 
 
 def plot_precision_recall_curve(y_true, y_pred, title, ax):
