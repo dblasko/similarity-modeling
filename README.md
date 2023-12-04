@@ -7,3 +7,9 @@ You need an environment with Python 3.10 installed (e.g. using conda, `conda cre
 ```
 $ pip install -r ./requirements.txt
 ```
+
+## Understanding our work
+The repository is generally organized in three folders:
+- `utils`: contains the code used for multiple experiments, such as the data processing and handling. 
+- `sim1`: contains our work for the Similarity Modeling 1 assignment. The work is in the form of Jupyter Notebooks that can be run to reproduce our results. **The reasoning for our decisions, our process and our results are discussed in the notebooks** (separate notebooks for Audio-, Vision- and hybrid-based approaches).
+- `sim2`: contains our work for the Similarity Modeling 2 assignment. The work is in the form of Jupyter Notebooks that can be run to reproduce our results. **The reasoning for our decisions, our process and our results are discussed in the notebooks** (separate notebooks for Audio-, Vision- and hybrid-based approaches). 
