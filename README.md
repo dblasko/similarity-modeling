@@ -123,7 +123,7 @@ Timesheets for the work on the project are present in the different notebooks. T
 </tbody>
 </table>
 
-**Alina:**
+**Alina Ehart:**
 <table>
 <thead>
   <tr>
@@ -134,5 +134,70 @@ Timesheets for the work on the project are present in the different notebooks. T
   </tr>
 </thead>
 <tbody>
+  <tr>
+    <td>24.10.23</td>
+    <td>Watch video 1 + Abstract</td>
+    <td>3h</td>
+  </tr>
+  <tr>
+    <td>31.10.23</td>
+    <td>Watch video 2 + Note Taking</td>
+    <td>2h</td>
+  </tr>
+  <tr>
+    <td>3.11.23</td>
+    <td>Watch Writing abstract 2</td>
+    <td>1h30</td>
+  </tr>
+  <tr>
+    <td>10.11.23</td>
+    <td>Watch video 3 + Note taking + Abstract 3</td>
+    <td>4h</td>
+  </tr>
+  <tr>
+    <td>04.11.23</td>
+    <td>Watch Video 4 & 5 + Note Taking</td>
+    <td>2h 30</td>
+  </tr>
+  <tr>
+    <td>12.11.23</td>
+    <td>Writing abstract 4</td>
+    <td>1h</td>
+  </tr>
+  <tr>
+    <td>13.11.23</td>
+    <td>Writing abstract 5</td>
+    <td>1h30</td>
+  </tr>
+  <tr>
+    <td>14.11.23</td>
+    <td>Watch video 6</td>
+    <td>2h</td>
+  </tr>
+  <tr>
+    <td>15.11.23</td>
+    <td>Writing abstract 6</td>
+    <td>1h30</td>
+  </tr>
+  <tr>
+    <td>16.11.23</td>
+    <td>Watch video 7 + Note Taking</td>
+    <td>2h</td>
+  </tr>
+  <tr>
+    <td>17.11.23</td>
+    <td>Writing abstract 7</td>
+    <td>2h</td>
+  </tr>
+  <tr>
+    <td>18.11.23</td>
+    <td>Watch video 8 + Writing Abstract 8</td>
+    <td>2h30</td>
+  </tr>
+  <tr>
+    <td>19.11.23</td>
+    <td>Watch video 9 + Writing Abstract 9 + Revising Abstracts Document</td>
+    <td>5h</td>
+  </tr>
 </tbody>
 </table>
