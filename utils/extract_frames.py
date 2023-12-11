@@ -1,6 +1,5 @@
 import pandas as pd
 import math
-#from sim import logger
 import cv2
 from tqdm import tqdm
 import os
