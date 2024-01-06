@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 import librosa
+import cv2
+from tqdm import tqdm
 
 
 class MuppetDataset:
@@ -9,8 +11,14 @@ class MuppetDataset:
     """
 
     def __init__(
-        self, video_paths, annotations_paths, extract_audio=False, extract_frames=True
+        self,
+        video_paths,
+        annotations_paths,
+        extract_audio=False,
+        extract_frames=True,
+        frame_rate=25,
     ):
+        self.frame_rate = frame_rate
         self.video_paths = video_paths
         self.annotations_paths = annotations_paths
         self.annotations = self.__load_annotations()
@@ -18,7 +26,7 @@ class MuppetDataset:
             self.__extract_audio()
         if extract_frames:
             self.__extract_frames()
-        self.frames = self.__load_frames()
+        self.__load_frames()
         self.__load_audio()  # sets self.audio_paths and self.audios - list of dicts {"audio": librosa_loaded_audio, "sr": sampling_rate}
 
     def __load_annotations(self):
@@ -37,12 +45,46 @@ class MuppetDataset:
         """
         Loads the frames of the video.
         """
-        # TODO:
-        return None
+        paths = []
+        for video_idx, video_path in enumerate(self.video_paths):
+            frames_dir = os.path.join(
+                os.path.join(os.path.dirname(video_path), "video"), str(video_idx)
+            )
+            paths.append(frames_dir)
+        self.frame_paths = paths
+
+        self.frames = {}
+        for video_idx, frame_folder in enumerate(self.frame_paths):
+            ordered_frames = []
+            for frame in os.listdir(frame_folder):
+                frame_idx = int(frame.split("_")[1].split(".")[0])
+                # append to the list of frames
+                ordered_frames.append((frame_idx, frame))
+            ordered_frames.sort(key=lambda tup: tup[0])
+            self.frames[video_idx] = ordered_frames
 
     def __extract_frames(self):
-        # TODO:
-        pass
+        for video_idx, video_path in enumerate(self.video_paths):
+            # Create video subdirectory if it does not exist
+            video_dir = os.path.join(os.path.dirname(video_path), "video")
+            if not os.path.exists(video_dir):
+                os.makedirs(video_dir)
+            video_dir = os.path.join(video_dir, str(video_idx))
+            if not os.path.exists(video_dir):
+                os.makedirs(video_dir)
+            # Extract frames of the video to the folder
+            capture = cv2.VideoCapture(video_path)
+            success, frame = capture.read()
+            pbar = tqdm(total=capture.get(7))
+            frame_nr = 0
+            while success:  # extraction at 25 fps
+                cv2.imwrite(f"{video_dir}/frame_{frame_nr}.png", frame)
+                success, frame = capture.read()
+                frame_nr += 1
+                pbar.update(1)
+            capture.release()
+            # remove the last frame, which is a duplicate
+            os.remove(f"{video_dir}/frame_{frame_nr - 1}.png")
 
     def __load_audio(self):
         paths = []
