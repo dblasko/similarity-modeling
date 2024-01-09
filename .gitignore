@@ -1,2 +1,7 @@
 data/
 */__pycache__/
+results/sim2_visual/lucas-kanade_farneback.csv
+results/sim2_visual/daisy.csv
+results/sim2_visual/daisy.pkl
+results/sim2_visual/daisy_lk.pkl
+results/sim2_visual/daisy_lk_fb.pkl
