@@ -7,3 +7,4 @@ results/sim2_visual/daisy_lk.pkl
 results/sim2_visual/daisy_lk_fb.pkl
 results/sim1_audio/audio_features.csv
 results/sim2_visual/all.csv
+results/sim2_audio/audio_features.csv
