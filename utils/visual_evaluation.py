@@ -42,6 +42,23 @@ def plot_global_confusion_matrix(y_true, y_pred, character1, character2):
     )  # Adjust ticks for class labels
     plt.yticks(ticks=[0.5, 1.5, 2.5], labels=["No character", character1, character2])
 
+def plot_global_confusion_matrix_sm2(y_true, y_pred, character1, character2, character3):
+    # Assuming y_true and y_pred are your true and predicted labels
+    conf_matrix = confusion_matrix(y_true, y_pred)
+
+    # Plotting the confusion matrix
+    sns.heatmap(conf_matrix, annot=True, fmt="g", cmap="Blues")
+    plt.title("General confusion matrix (all classes)")
+    plt.ylabel("True Label")
+    plt.xlabel("Predicted Label")
+
+    # Adjust ticks for class labels
+    c1c2 = str(character1 + " & "+character2)
+    c1c3 = str(character1 + " & "+character3)
+    c2c3 = str(character2 + " & "+character2)
+    allc = str(character1 + " & "+character2 + " & "+character3)
+    plt.xticks(ticks=[0.5, 1.5, 2.5, 3.5,4.5,5.5,6.5,7.5], labels=["No character", character1, character2, character3,c1c2,c1c3,c2c3,allc],rotation=90)
+    plt.yticks(ticks=[0.5, 1.5, 2.5, 3.5,4.5,5.5,6.5,7.5], labels=["No character", character1, character2, character3,c1c2,c1c3,c2c3,allc],rotation=360)
 
 def plot_precision_recall_curve(y_true, y_pred, title, ax):
     precision, recall, _ = precision_recall_curve(y_true, y_pred)
